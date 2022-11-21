@@ -1,0 +1,10 @@
+@import '../../style/vars.scss';
+@each $theme in $themes{
+    $color:map-get($activeColors,#{$theme});
+
+    .#{$theme}{
+        .lazy-load-a{
+            color:$color;
+        }    
+    }
+}

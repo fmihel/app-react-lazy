@@ -3,8 +3,8 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 //const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const mode = 'development';
-//const mode = 'production';
+//const mode = 'development';
+const mode = 'production';
 
 const extractCss = true;
 
@@ -55,7 +55,7 @@ module.exports = {
     output:{
         path:outputPath,
         filename:'[name].[fullhash].js',
-        chunkFilename: '[id].[chunkhash].js',
+        chunkFilename: 'build.[id].[chunkhash].js',
     },
     resolve: {
         alias: {

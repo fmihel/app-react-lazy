@@ -7,7 +7,7 @@ loadCSS('components/LazyLoadA/style.css');
 export default ({}) => {
     const text = 'LazyLoadA';
     return (
-        <div>
+        <div className="lazy-load-a">
             {text}
         </div>
     );
