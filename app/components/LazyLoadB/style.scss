@@ -1,0 +1,13 @@
+@import '../../style/vars.scss';
+
+@each $theme in $themes{
+    $border:map-get($activeColors,#{$theme});
+    $color:map-get($activeColors,#{$theme});
+
+    .#{$theme}{
+        .lazy-load-b{
+            color:$color;
+            border: 1px solid $border;
+        }    
+    }
+}

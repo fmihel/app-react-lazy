@@ -10,6 +10,7 @@ import './style/index.scss';
 
 loadCSS('style/index.css');
 
-window.onload = () => {
-    createRoot(document.getElementById('sub-body')).render(<Provider store={redux.store}><App /></Provider>);
-};
+redux.on(() => {
+    console.log('change state', redux.getState());
+});
+createRoot(document.getElementById('root')).render(<Provider store={redux.store}><App /></Provider>);

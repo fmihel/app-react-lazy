@@ -1,3 +1,3 @@
-import ui from './ui';
+import idle from './idle';
 
-export { ui };
+export { idle };

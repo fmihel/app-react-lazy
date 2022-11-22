@@ -4,9 +4,9 @@
   "description": "template for app on react and redux",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf ./dist/* &&  webpack",
-    "run-server": "webpack-dev-server",
-    "run-manual-server": "node dev-server-manual.js",
+    "build-prod": "rm -rf ./dist/* &&  webpack --env --prod",
+    "build-dev": "rm -rf ./dist/* &&  webpack",
+    "run-dev-server": "webpack-dev-server",
     "generate-action": "node snippets/action"
   },
   "author": "",
@@ -38,7 +38,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "fmihel-lazy-load": "^0.0.4",
+    "fmihel-lazy-load": "^0.0.5",
     "fmihel-redux-wrapper": "^3.0.0",
     "jquery": "^3.6.1",
     "lodash": "^4.17.21",
