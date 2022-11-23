@@ -3,6 +3,8 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 //const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 //------------------------------------------------------------------------
 // получить переменную командной строки
 const arg=(name)=>process.argv.find((a) => ((a === name) || (a === (`--${name}`)))) !== undefined;
@@ -22,6 +24,11 @@ const extractCss = true;
 
 let outputPath = path.resolve(__dirname,'dist');
 let hash = genHash(20);
+
+
+const copyList = [
+    { from: `./app/media/favicon.ico` },
+];
 
 
 
@@ -82,7 +89,8 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: `./app/index.html`,
             filename: './index.html',
-        })
+        }),
+        new CopyWebpackPlugin({patterns:copyList}),
         //new webpack.HotModuleReplace`mentPlugin()
     ],
     module: {

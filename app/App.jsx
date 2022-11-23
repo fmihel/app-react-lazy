@@ -5,6 +5,7 @@ import { imports } from 'fmihel-lazy-load';
 import Fallback from './components/Fallback/Fallback.jsx';
 
 const LazyLoadC = lazy(() => import('./components/LazyLoadC/LazyLoadC.jsx'));
+// const LazyLoadD = lazy(() => import('./components/LazyLoadD/LazyLoadD.jsx'));
 // const LazyLoadC = lazy(() => import(/* webpackChunkName: "LazyLoadC" */'./components/LazyLoadC/LazyLoadC.jsx'));
 /*
 const LazyLoadC = lazy(() => new Promise((ok) => {
@@ -18,6 +19,8 @@ class App extends React.Component {
         super(p);
         this.onLazyLoadA = this.onLazyLoadA.bind(this);
         this.onLazyLoadB = this.onLazyLoadB.bind(this);
+        this.onLazyLoadD = this.onLazyLoadD.bind(this);
+
         this.onLoadLibLazy = this.onLoadLibLazy.bind(this);
         this.onLoadLibsLazy = this.onLoadLibsLazy.bind(this);
         this.onImports = this.onImports.bind(this);
@@ -25,6 +28,7 @@ class App extends React.Component {
         this.state = {
             LazyLoadA: undefined,
             LazyLoadB: undefined,
+            LazyLoadD: undefined,
         };
     }
 
@@ -39,6 +43,14 @@ class App extends React.Component {
         // загрузка react с добавление состояния в redux
         import('./components/LazyLoadB/LazyLoadB.jsx').then((mod) => {
             this.setState({ LazyLoadB: mod.default });
+        });
+    }
+
+    onLazyLoadD() {
+        // загрузка react с добавление состояния в redux
+
+        import('./components/LazyLoadD/LazyLoadD.jsx').then(({ default: LazyLoadD }) => {
+            this.setState({ LazyLoadD });
         });
     }
 
@@ -89,7 +101,7 @@ class App extends React.Component {
     // }
 
     render() {
-        const { LazyLoadA, LazyLoadB } = this.state;
+        const { LazyLoadA, LazyLoadB, LazyLoadD } = this.state;
         const { theme } = this.props;
         console.log('render', 'App');
         return (
@@ -98,6 +110,7 @@ class App extends React.Component {
                     <input type="button" onClick={this.onTheme} value='theme'/>
                     <input type="button" onClick={this.onLazyLoadA} value='LazyLoadA'/>
                     <input type="button" onClick={this.onLazyLoadB} value='LazyLoadB'/>
+                    <input type="button" onClick={this.onLazyLoadD} value='LazyLoadD'/>
                     <input type="button" onClick={this.onLoadLibLazy} value='LoadLibLazy'/>
                     <input type="button" onClick={this.onLoadLibsLazy} value='LoadLibsLazy'/>
                     <input type="button" onClick={this.onImports} value='Imports'/>
@@ -108,6 +121,7 @@ class App extends React.Component {
                     <Suspense fallback={<Fallback/>}>
                         <LazyLoadC/>
                     </Suspense>
+                    {(LazyLoadD) && <LazyLoadD/>}
                 </div>
             </div>
         );
