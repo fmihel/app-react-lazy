@@ -1,5 +1,28 @@
-@import '../../../node_modules/fmihel-react-bootstrap-tree/style/Tree.scss';
+@import '../../style/vars.scss';
+@import '../../../node_modules/fmihel-react-bootstrap-tree/style/tree-mixin.scss';
+
 .lazy-load-d{
     height:300px !important;
     text-align: left !important; 
 }
+@each $theme in $themes{
+    $border:map-get($borders,#{$theme});
+    $hoverBg:map-get($hoverBgs,#{$theme});
+    $hoverColor:map-get($hoverColors,#{$theme});   
+    $selectBg:map-get($selectBgs,#{$theme});
+    $selectColor:map-get($selectColors,#{$theme});
+
+    .#{$theme}{
+        @include tree-mixin(
+            $size:$size,
+            $border:$border,
+            $hover-bg:$hoverBg,
+            $hover-color:$hoverColor,
+            $select-bg:$selectBg,
+            $select-color:$selectColor
+            );
+    }
+    
+}
+
+
