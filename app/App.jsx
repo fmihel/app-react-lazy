@@ -1,8 +1,17 @@
 /* eslint-disable no-return-assign */
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import redux from 'REDUX';
 import { imports } from 'fmihel-lazy-load';
+import Fallback from './components/Fallback/Fallback.jsx';
 
+const LazyLoadC = lazy(() => import(/* webpackChunkName: "LazyLoadC" */'./components/LazyLoadC/LazyLoadC.jsx'));
+/*
+const LazyLoadC = lazy(() => new Promise((ok) => {
+    setTimeout(() => {
+        ok(import('./components/LazyLoadC/LazyLoadC.jsx'));
+    }, 2000);
+}));
+*/
 class App extends React.Component {
     constructor(p) {
         super(p);
@@ -95,6 +104,9 @@ class App extends React.Component {
                 <div className='content'>
                     {(LazyLoadA) && <LazyLoadA/>}
                     {(LazyLoadB) && <LazyLoadB/>}
+                    <Suspense fallback={<Fallback/>}>
+                        <LazyLoadC/>
+                    </Suspense>
                 </div>
             </div>
         );

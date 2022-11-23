@@ -57,7 +57,7 @@ module.exports = {
     output:{
         path:outputPath,
         filename:'[name].[fullhash].js',
-        chunkFilename: 'lazy.[id].[chunkhash].js',
+        chunkFilename: 'lazy/[id].[chunkhash].js',
     },
     resolve: {
         alias: {
