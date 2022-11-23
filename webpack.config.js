@@ -76,6 +76,7 @@ module.exports = {
         new webpack.DefinePlugin({
            CSS_ROOT_PATH: JSON.stringify('./style/app/'),
            CSS_HASH: JSON.stringify(hash),
+           CSS_LAZY_LOAD_ENABLE:extractCss,
            WEBPACK_MODE:JSON.stringify(mode),
         }),        
         new HtmlWebPackPlugin({

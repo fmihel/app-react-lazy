@@ -4,7 +4,8 @@ import redux from 'REDUX';
 import { imports } from 'fmihel-lazy-load';
 import Fallback from './components/Fallback/Fallback.jsx';
 
-const LazyLoadC = lazy(() => import(/* webpackChunkName: "LazyLoadC" */'./components/LazyLoadC/LazyLoadC.jsx'));
+const LazyLoadC = lazy(() => import('./components/LazyLoadC/LazyLoadC.jsx'));
+// const LazyLoadC = lazy(() => import(/* webpackChunkName: "LazyLoadC" */'./components/LazyLoadC/LazyLoadC.jsx'));
 /*
 const LazyLoadC = lazy(() => new Promise((ok) => {
     setTimeout(() => {

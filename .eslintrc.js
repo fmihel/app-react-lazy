@@ -30,6 +30,7 @@ module.exports = {
         $: true,
         CSS_ROOT_PATH: true,
         CSS_HASH: true,
+        CSS_LAZY_LOAD_ENABLE: true,
         WEBPACK_MODE: true,
     },
     rules: {
