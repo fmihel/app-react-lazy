@@ -1,13 +1,14 @@
 @mixin panel($theme,$border) {
     .panel{
-        height:$size;
-        line-height: $size;
+        min-height:$size;
+        //line-height: $size;
         padding-left: $gap;
         padding-right: $gap;
         border-bottom: 1px solid $border;
 
         >input{
             margin: $gap;
+            display: block;
         }
     }
 }

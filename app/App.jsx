@@ -19,24 +19,28 @@ class App extends React.Component {
     }
 
     onLazyLoadA() {
+        // отложенная загрузка простого react компонента
         import('./components/LazyLoadA/LazyLoadA.jsx').then((mod) => {
             this.setState({ LazyLoadA: mod.default });
         });
     }
 
     onLazyLoadB() {
+        // загрузка react с добавление состояния в redux
         import('./components/LazyLoadB/LazyLoadB.jsx').then((mod) => {
             this.setState({ LazyLoadB: mod.default });
         });
     }
 
     onLoadLibLazy() {
+        // загрузка библиотеки
         import('jquery').then(({ default: $ }) => {
             console.log($);
         });
     }
 
     onLoadLibsLazy() {
+        // загрузка нескольких библиотек
         Promise.all([
             import('lodash'),
             import('jquery'),
@@ -47,11 +51,15 @@ class App extends React.Component {
     }
 
     onImports() {
-        imports('mod1')
-            .then(({ mod1 }) => {
+        // загрузка модуля и нескольких библиотек через imports
+        // нужна регистрация см lazy-load.config.js
+        imports('mod1', '_', '$')
+            .then(({ mod1, _, $ }) => {
                 const Class = mod1.Mod1;
                 const obj = mod1.default;
                 obj.info();
+                console.log('lodash', _);
+                console.log('jquery', $);
             });
     }
 
