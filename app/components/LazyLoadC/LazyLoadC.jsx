@@ -7,7 +7,7 @@ loadCSS('components/LazyLoadC/style.css');
 export default ({}) => {
     const text = 'LazyLoadC';
     return (
-        <div className='lazy-load-c'>
+        <div className='lazy lazy-load-c'>
             {text}
         </div>
     );

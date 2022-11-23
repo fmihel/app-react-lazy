@@ -9,11 +9,12 @@ loadCSS('components/LazyLoadB/style.css');
 
 // eslint-disable-next-line no-empty-pattern
 const LazyLoadB = ({ text }) => {
+    console.log('render LazyLoadB');
     const click = () => {
         redux.actions.LazyLoadBChange('LazyLoad send change');
     };
     return (
-        <div onClick={click} className='lazy-load-b'>
+        <div onClick={click} className='lazy lazy-load-b'>
             {text}
         </div>
     );
