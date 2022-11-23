@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "fmihel-lazy-load": "^0.0.5",
-    "fmihel-redux-wrapper": "^3.0.0",
+    "fmihel-redux-wrapper": "^3.0.1",
     "jquery": "^3.6.1",
     "lodash": "^4.17.21",
     "react": "^18.2.0",

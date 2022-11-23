@@ -1,7 +1,7 @@
-import redux from 'REDUX';
-
-redux.data.attach({
+const data = {
     lazyB: {
         text: 'lazyB',
     },
-});
+};
+
+export default data;

@@ -1,9 +1,9 @@
 import React from 'react';
 import redux from 'REDUX';
-import './data';
+import { loadCSS } from 'fmihel-lazy-load';
+import dataDefault from './data';
 import './actions';
 import './style.scss';
-import { loadCSS } from 'fmihel-lazy-load';
 
 loadCSS('components/LazyLoadB/style.css');
 
@@ -20,7 +20,7 @@ const LazyLoadB = ({ text }) => {
 };
 
 const mapStateToProps = (state) => ({
-    text: state.lazyB.text,
+    ...{ ...dataDefault.lazyB, ...state.lazyB },
 });
 
 export default redux.connect(mapStateToProps)(LazyLoadB);

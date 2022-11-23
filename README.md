@@ -1,2 +1,2 @@
 # app-react
-start config for webapp on react with redux
+Шаблон приложения react-redux отложенной (ленивой) загрузкой как модулей js, так сгенериврованных модулей css
