@@ -31,7 +31,8 @@ if (extractCss){
         ...rulesCss,
         type: "asset/resource",
         generator: {
-            filename: "style/[path]/[name]."+hash+".css"
+            //filename(o){ console.log('style',Object.keys(o),o.filename.replaceAll('/','_')); return "style/[path]/[name]."+hash+".css";}
+            filename:"style/[path]/[name]."+hash+".css",
         },
         use: [
             'sass-loader' // inject CSS to page
