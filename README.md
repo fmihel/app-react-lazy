@@ -1,8 +1,8 @@
-# app-react
+# app-react-lazy
 Шаблон приложения react-redux отложенной (ленивой) загрузкой как модулей js, так сгенериврованных модулей css
 
 # установка
-```git clone git@github.com:fmihel/app-react.git```
+```git clone git@github.com:fmihel/app-react-lazy.git```
 
 
 
