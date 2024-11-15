@@ -1,5 +1,5 @@
 {
-  "name": "app-react",
+  "name": "app-react-lazy",
   "version": "0.0.1",
   "description": "template for app on react and redux",
   "main": "index.js",
